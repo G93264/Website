@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.menu {
+    display: block;
+    height: 50px;
+    position: relative;
+    width: 100%;
+    background-color: brown;
+}
+
+.menu__container {
+    display: flex;
+    height: 100%;
+    width: 1000px;
+    margin: 0 auto;
+    background-color: burlywood;
+    list-style: none;
+}
+
+.menu__container--item{
+    flex-grow: 1;
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:100%;
+    text-decoration: none;
+
+}
+.menu__container--item > li{
+    color: black;
+    font-size: 2rem;
+    font-family: 'Eagle Lake', cursive;
+
+}
