@@ -8,14 +8,17 @@ exports.getOverview = async (req, res, next) => {
 exports.getShop = async (req, res, next) => {
   res.status(200).render('shop');
 };
+
 exports.getLogin = async (req, res, next) => {
   res.status(200).render('login', {
     age: 16
   });
 };
 
+exports.getSignup = async (req, res, next) => {
+  res.status(200).render('signup')
+};
+
 exports.getMyAccount = async (req, res, next) => {
-  res.status(200).json({
-    data: 'Your account',
-  });
+  res.status(200).render('myAccount');
 };

@@ -29,7 +29,7 @@ const createSendToken = (user, statusCode, req, res) => {
   // Remove password from output
   user.password = undefined;
 
-  res.status(statusCode).json({
+  res.status(statusCode).redirect('http://127.0.0.1:3000').json({
     status: 'success',
     token,
     data: {
@@ -63,12 +63,15 @@ const createSendToken = (user, statusCode, req, res) => {
 
 // Signup the user
 exports.signUp = catchAsync(async (req, res, next) => { 
+
   const newUser = await User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm,
+    name: req.body.user['name'],
+    email: req.body.user['email'],
+    password: req.body.user['password'],
+    passwordConfirm: req.body.user['passwordConfirm'],
+    images: req.files.map(f => ({ url: f.path, filename: f.filename }))
   });
+
 
   createSendToken(newUser, 201, req, res);
 });

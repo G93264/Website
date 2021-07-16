@@ -22,18 +22,21 @@
                         LOGIN
                     </li>
                 </a>
-                <a href="#" class="menu__container--item">
+                <a href="/signup" class="menu__container--item">
                     <li>
                         SIGN UP
                     </li>
                 </a>            
             <% } else { %>
-                <a href="#" class="menu__container--item">
+                <a href="/account" class="menu__container--item">
                     <li>
                         <%=user.name %>>
                     </li>
+
+                        <img style="height: 50px; width: 50px; border-radius: 100%; margin-left: 10px;" src="<%=user.images[0].url %>" alt="">
+
                 </a>
-                <a href="#" class="menu__container--item">
+                <a href="#" id="logoutBtn" class="menu__container--item">
                     <li>
                         LOG OUT
                     </li>
@@ -42,5 +45,6 @@
 
         </ul>
     </div>
+
 
 

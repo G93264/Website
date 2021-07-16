@@ -2,6 +2,13 @@ const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const validator = require('validator');
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+
+const ImageSchema = new Schema({
+  url: String,
+  filename: String
+});
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -21,10 +28,7 @@ const userSchema = new mongoose.Schema({
   passwordChangedAt: {
     type: Date,
   },
-  photo: {
-    type: String,
-    default: 'default.jpg',
-  },
+  images: [ImageSchema],
   password: {
     type: String,
     required: [false, 'A password is required to create an account'],
